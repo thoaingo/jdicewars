@@ -6,27 +6,23 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
-public class GamePanel extends JPanel {
+public class HelloPanel extends JPanel {
 
-	private Container parentContainer;
+	//private Container parentContainer;
 	
-	public GamePanel(Container containerContainer) {
-		this.parentContainer = containerContainer;
+	public HelloPanel(Container parentContainer) {
+		//this.parentContainer = parentContainer;
 		initComponents();
 		initEvents();
 	}
 
 	private void initComponents() {
-		add(new JLabel("Game"));
+		add(new JLabel("Hello"));
 		
 	}
 
 	private void initEvents() {
 		// TODO Auto-generated method stub
 		
-	}
-
-	public Container getParentContainer() {
-		return parentContainer;
 	}
 }
