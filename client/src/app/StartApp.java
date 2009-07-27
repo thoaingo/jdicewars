@@ -1,6 +1,6 @@
 package app;
 
-import gui.MainFrame;
+import gui.frame.MainFrame;
 
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
