@@ -29,6 +29,11 @@ public class Hexagon {
 	public Point getPoint() {
 		return new Point(x, y);
 	}
+	
+	public boolean containsPoint(int x, int y) {
+		// TODO implement
+		return false;
+	}
 
 	@Override
 	public int hashCode() {

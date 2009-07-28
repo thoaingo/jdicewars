@@ -1,29 +1,29 @@
 package gui.panel;
 
 import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import app.FieldDrawer;
+import app.AppContext;
 
 @SuppressWarnings("serial")
 public class GamePanel extends JPanel {
 
 	private Container parentContainer;
-	private FieldDrawer drawer;
 	
 	public GamePanel(Container containerContainer) {
 		this.parentContainer = containerContainer;
-		this.drawer = new FieldDrawer(this);
 		initComponents();
 		initEvents();
 	}
 
 	private void initComponents() {
 		add(new JLabel("Game"));
+		setMinimumSize(new Dimension(640, 480));
 		
 	}
 
@@ -39,7 +39,7 @@ public class GamePanel extends JPanel {
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		Graphics2D g2d = (Graphics2D) g;
-		drawer.draw(g2d);
+		AppContext.getContext().drawField(g2d);
 	}
 	
 }

@@ -1,28 +1,31 @@
 package app;
 
+import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.util.HashSet;
 import java.util.Set;
-
-import javax.swing.JPanel;
+import java.util.logging.Logger;
 
 import model.Hexagon;
 
 public class FieldDrawer {
 
-	private JPanel panel;
+	private static Logger log = Logger.getLogger(FieldDrawer.class.getName());
 	private int width;
 	private int height;
 	private Set<Hexagon> field = new HashSet<Hexagon>();
 	
-	public FieldDrawer(JPanel panel) {
-		this.panel = panel;
+	public FieldDrawer(Dimension size) {
+		this(size.width, size.height);
+	}
+	
+	public FieldDrawer(int width, int height) {
+		this.width = width;
+		this.height = height;
 	}
 
 	public void draw(Graphics2D g2d) {
-		System.out.println("draw");
-		width = panel.getWidth();
-		height = panel.getHeight();
+		log.info("draw");
 		
 		int offset = 0;
 		for (int y = 0; y < height; y += 15) {
@@ -34,7 +37,7 @@ public class FieldDrawer {
 			offset = 10 - offset;
 		}
 		
-		System.out.println(field.size());
+		log.info(String.valueOf(field.size()));
 	}
 	
 	
