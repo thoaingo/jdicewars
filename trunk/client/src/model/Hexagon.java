@@ -11,16 +11,25 @@ public class Hexagon {
 	private int[] yPoints = {0, 5, 15, 20, 15, 5};
 	private int x = 0;
 	private int y = 0;
+	private double xScale = 1;
+	private double yScale = 1;
 	
-	public Hexagon(int xOffset, int yOffset) {
-		this.x = xOffset;
-		this.y = yOffset;
+	public Hexagon(int x, int y) {
+		this.x = x;
+		this.y = y;
+	}
+	
+	public Hexagon(int x, int y, double xScale, double yScale) {
+		this.x = x;
+		this.y = y;
+		this.xScale = xScale;
+		this.yScale = yScale;
 	}
 
 	public Shape getHexagon() {
-		hexagon.moveTo(xPoints[0] + x, yPoints[0] + y);
+		hexagon.moveTo((xPoints[0] + x) * xScale, (yPoints[0] + y) * yScale);
 		for (int i = 1; i < xPoints.length; i++) {
-			hexagon.lineTo(xPoints[i] + x, yPoints[i] + y);
+			hexagon.lineTo((xPoints[i] + x) * xScale, (yPoints[i] + y) * yScale);
 		}
 		hexagon.closePath();
 		return hexagon;

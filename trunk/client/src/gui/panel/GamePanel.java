@@ -1,29 +1,31 @@
 package gui.panel;
 
+import java.awt.BorderLayout;
 import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
 
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-
-import app.AppContext;
 
 @SuppressWarnings("serial")
 public class GamePanel extends JPanel {
 
 	private Container parentContainer;
+	private JPanel boardPanel;
+    private JPanel scorePanel;
 	
-	public GamePanel(Container containerContainer) {
-		this.parentContainer = containerContainer;
+	public GamePanel(Container parentContainer) {
+		this.parentContainer = parentContainer;
 		initComponents();
 		initEvents();
 	}
 
 	private void initComponents() {
-		add(new JLabel("Game"));
-		setMinimumSize(new Dimension(640, 480));
+		setLayout(new BorderLayout());
+		
+		boardPanel = new BoardPanel(parentContainer);
+		scorePanel = new ScorePanel(parentContainer);
+		
+		add(boardPanel, BorderLayout.CENTER);
+		add(scorePanel, BorderLayout.SOUTH);
 		
 	}
 
@@ -31,15 +33,4 @@ public class GamePanel extends JPanel {
 		// TODO Auto-generated method stub
 		
 	}
-
-	public Container getParentContainer() {
-		return parentContainer;
-	}
-	
-	public void paintComponent(Graphics g) {
-		super.paintComponent(g);
-		Graphics2D g2d = (Graphics2D) g;
-		AppContext.getContext().drawField(g2d);
-	}
-	
 }

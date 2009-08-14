@@ -6,6 +6,8 @@ import java.awt.Graphics2D;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JPanel;
+
 import model.Player;
 
 public class AppContext {
@@ -26,15 +28,16 @@ public class AppContext {
 		players.add(pl2);
 	}
 	
-	public static AppContext getContext() {
+	public static AppContext getContext(JPanel panel) {
 		if (context == null) {
+			size = panel.getSize();
 			context = new AppContext();
 		}
 		return context;
 	}
 	
-	public void drawField(Graphics2D g2d) {
-		fieldDrawer.draw(g2d);
+	public void drawField(Graphics2D g2d, Dimension newSize) {
+		fieldDrawer.draw(g2d, newSize);
 	}
 	
 	public void fillField(Graphics2D g2d) {
