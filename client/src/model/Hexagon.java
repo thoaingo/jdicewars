@@ -43,6 +43,10 @@ public class Hexagon {
 		// TODO implement
 		return false;
 	}
+	
+	public GeneralPath getPath() {
+		return hexagon;
+	}
 
 	@Override
 	public int hashCode() {
@@ -68,6 +72,5 @@ public class Hexagon {
 			return false;
 		return true;
 	}
-
 	
 }

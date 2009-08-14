@@ -45,7 +45,11 @@ public class FieldDrawer {
 		log.info(String.valueOf(field.size()));
 	}
 	
-	public int getHexagonCount() {
+	public int getFieldSize() {
 		return field.size();
+	}
+	
+	public Set<Hexagon> getField() {
+		return field;
 	}
 }
