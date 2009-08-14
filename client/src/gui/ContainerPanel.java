@@ -14,7 +14,7 @@ public class ContainerPanel extends JPanel {
 	public final static String GAME_PANEL = "Game Panel";
 	
 	private JPanel helloPanel;
-    private JPanel mainPanel;
+	private JPanel gamePanel;
 	
 	public ContainerPanel() {
 		initComponents();
@@ -23,11 +23,11 @@ public class ContainerPanel extends JPanel {
 
 	private void initComponents() {
 		helloPanel = new HelloPanel(this);
-        mainPanel = new GamePanel(this);
+		gamePanel = new GamePanel(this);
         
         setLayout(new CardLayout());
         add(helloPanel, HELLO_PANEL);
-        add(mainPanel, GAME_PANEL);
+        add(gamePanel, GAME_PANEL);
 		
 	}
 
