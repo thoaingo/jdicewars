@@ -24,13 +24,22 @@ public class AppContext {
 		
 		Player pl1 = new Player(Color.RED);
 		Player pl2 = new Player(Color.BLUE);
+		Player pl3 = new Player(Color.YELLOW);
 		players.add(pl1);
 		players.add(pl2);
+		players.add(pl3);
 	}
 	
 	public static AppContext getContext(JPanel panel) {
+		size = panel.getSize();
 		if (context == null) {
-			size = panel.getSize();
+			context = new AppContext();
+		}
+		return context;
+	}
+	
+	public static AppContext getContext() {
+		if (context == null) {
 			context = new AppContext();
 		}
 		return context;
@@ -40,7 +49,15 @@ public class AppContext {
 		fieldDrawer.draw(g2d, newSize);
 	}
 	
-	public void fillField(Graphics2D g2d) {
-		fieldFiller.fill(g2d, players.size());
+	public void fillField(Graphics2D g2d, Dimension newSize) {
+		fieldFiller.fill(g2d, players, newSize);
+	}
+	
+	public FieldDrawer getDrawer () {
+		return fieldDrawer;
+	}
+	
+	public FieldFiller getFiller() {
+		return fieldFiller;
 	}
 }

@@ -3,14 +3,17 @@ package app;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.logging.Logger;
 
 import model.Area;
+import model.Hexagon;
+import model.Player;
 
 public class FieldFiller {
 
-	private static Logger log = Logger.getLogger(FieldDrawer.class.getName());
+	private static Logger log = Logger.getLogger(FieldFiller.class.getName());
 	private int width;
 	private int height;
 	private Set<Area> areas = new HashSet<Area>();
@@ -24,7 +27,15 @@ public class FieldFiller {
 		this.height = height;
 	}
 
-	public void fill(Graphics2D g2d, int playersCount) {
+	public void fill(Graphics2D g2d, List<Player> players, Dimension newSize) {
 		log.info("fill");
+		Set<Hexagon> field = AppContext.getContext().getDrawer().getField();
+		int i = 0;
+		for (Hexagon hexagon : field) {
+			int number = i % players.size();
+			g2d.setPaint(players.get(number).getColor());
+			i++;
+			g2d.fill(hexagon.getPath());
+		}
 	}
 }
