@@ -2,10 +2,9 @@ package app;
 
 import java.awt.Dimension;
 import java.awt.Graphics2D;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.logging.Logger;
 
+import model.HexagonField;
 import model.Hexagon;
 
 public class FieldDrawer {
@@ -13,7 +12,7 @@ public class FieldDrawer {
 	private static Logger log = Logger.getLogger(FieldDrawer.class.getName());
 	private int width;
 	private int height;
-	private Set<Hexagon> field = new HashSet<Hexagon>();
+	private HexagonField field = new HexagonField();
 	
 	public FieldDrawer(Dimension size) {
 		this(size.width, size.height);
@@ -32,6 +31,7 @@ public class FieldDrawer {
 		
 		log.info("scale : " + xScale + "; " + yScale);
 		
+		field.clear();
 		int offset = 0;
 		for (int y = 5; y < height - 15; y += 15) {
 			for (int x = 3; x < width - 20; x += 20) {
@@ -49,7 +49,7 @@ public class FieldDrawer {
 		return field.size();
 	}
 	
-	public Set<Hexagon> getField() {
+	public HexagonField getField() {
 		return field;
 	}
 }

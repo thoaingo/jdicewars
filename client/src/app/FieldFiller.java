@@ -9,11 +9,13 @@ import java.util.logging.Logger;
 
 import model.Area;
 import model.Hexagon;
+import model.HexagonField;
 import model.Player;
 
 public class FieldFiller {
 
-	private static Logger log = Logger.getLogger(FieldFiller.class.getName());
+	private static final Logger log = Logger.getLogger(FieldFiller.class.getName());
+	private static final int AREA_HEX_COUNT = 6;
 	private int width;
 	private int height;
 	private Set<Area> areas = new HashSet<Area>();
@@ -29,9 +31,12 @@ public class FieldFiller {
 
 	public void fill(Graphics2D g2d, List<Player> players, Dimension newSize) {
 		log.info("fill");
-		Set<Hexagon> field = AppContext.getContext().getDrawer().getField();
+		
+		HexagonField field = AppContext.getContext().getDrawer().getField();
 		int i = 0;
 		for (Hexagon hexagon : field) {
+			//Set<Hexagon> neighbors = field.findNeighbors(hexagon);
+						
 			int number = i % players.size();
 			g2d.setPaint(players.get(number).getColor());
 			i++;

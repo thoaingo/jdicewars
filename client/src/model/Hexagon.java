@@ -44,6 +44,13 @@ public class Hexagon {
 		return false;
 	}
 	
+	public boolean isNeighbor(Hexagon hexagon) {
+		boolean result =
+			((this.x == hexagon.x - 20 || this.x == hexagon.x + 20) && this.y == hexagon.y) ||
+			((this.x == hexagon.x - 10 || this.x == hexagon.x + 10) && (this.y == hexagon.y + 15 || this.y == hexagon.y - 15));
+		return result;
+	}
+	
 	public GeneralPath getPath() {
 		return hexagon;
 	}
