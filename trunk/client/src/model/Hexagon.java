@@ -11,7 +11,9 @@ public class Hexagon {
 	private int[] yPoints = {0, 5, 15, 20, 15, 5};
 	private int x = 0;
 	private int y = 0;
+	@Deprecated
 	private double xScale = 1;
+	@Deprecated
 	private double yScale = 1;
 	
 	public Hexagon(int x, int y) {
@@ -33,6 +35,11 @@ public class Hexagon {
 		}
 		hexagon.closePath();
 		return hexagon;
+	}
+	
+	public void setScale(double xScale, double yScale) {
+		this.xScale = xScale;
+		this.yScale = yScale;
 	}
 	
 	public Point getPoint() {
