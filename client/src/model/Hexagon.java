@@ -12,16 +12,16 @@ public class Hexagon {
 	private int x = 0;
 	private int y = 0;
 	@Deprecated
-	private double xScale = 1;
+	private float xScale = 1;
 	@Deprecated
-	private double yScale = 1;
+	private float yScale = 1;
 	
 	public Hexagon(int x, int y) {
 		this.x = x;
 		this.y = y;
 	}
 	
-	public Hexagon(int x, int y, double xScale, double yScale) {
+	public Hexagon(int x, int y, float xScale, float yScale) {
 		this.x = x;
 		this.y = y;
 		this.xScale = xScale;
@@ -37,7 +37,7 @@ public class Hexagon {
 		return hexagon;
 	}
 	
-	public void setScale(double xScale, double yScale) {
+	public void setScale(float xScale, float yScale) {
 		this.xScale = xScale;
 		this.yScale = yScale;
 	}

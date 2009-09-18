@@ -5,33 +5,24 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 import app.AppContext;
 
 @SuppressWarnings("serial")
-public class BoardPanel extends JPanel {
+public class BoardPanel extends AbstractPanel {
 
-	private Container parentContainer;
-	
 	public BoardPanel(Container containerContainer) {
-		this.parentContainer = containerContainer;
-		initComponents();
-		initEvents();
+		super(containerContainer);
 	}
 
-	private void initComponents() {
+	protected void initComponents() {
 		add(new JLabel("Board"));
 	}
 
-	private void initEvents() {
-		// TODO Auto-generated method stub
+	protected void initEvents() {
+		// TODO implement
 	}
 
-	public Container getParentContainer() {
-		return parentContainer;
-	}
-	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		Graphics2D g2d = (Graphics2D) g;
