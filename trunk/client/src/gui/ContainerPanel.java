@@ -1,7 +1,10 @@
 package gui;
 
+import gui.panel.CommonPanel;
 import gui.panel.GamePanel;
 import gui.panel.HelloPanel;
+import gui.panel.HelpPanel;
+import gui.panel.OptionsPanel;
 
 import java.awt.CardLayout;
 
@@ -15,8 +18,10 @@ public class ContainerPanel extends JPanel {
 	public final static String HELP_PANEL = "Help Panel";
 	public final static String GAME_PANEL = "Game Panel";
 	
-	private JPanel helloPanel;
-	private JPanel gamePanel;
+	private CommonPanel helloPanel;
+	private CommonPanel gamePanel;
+	private CommonPanel optionsPanel;
+	private CommonPanel helpPanel;
 	
 	public ContainerPanel() {
 		initComponents();
@@ -26,10 +31,14 @@ public class ContainerPanel extends JPanel {
 	private void initComponents() {
 		helloPanel = new HelloPanel(this);
 		gamePanel = new GamePanel(this);
+		optionsPanel = new OptionsPanel(this);
+		helpPanel = new HelpPanel(this); 
         
         setLayout(new CardLayout());
         add(helloPanel, HELLO_PANEL);
         add(gamePanel, GAME_PANEL);
+        add(optionsPanel, OPTIONS_PANEL);
+        add(helpPanel, HELP_PANEL);
 		
 	}
 

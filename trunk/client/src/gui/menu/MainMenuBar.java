@@ -1,10 +1,11 @@
 package gui.menu;
 
 import java.awt.Container;
+import java.awt.event.ActionListener;
 
 import gui.ContainerPanel;
 import gui.listener.ExitActionListener;
-import gui.listener.StartActionListener;
+import gui.listener.MenuActionListener;
 
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -16,6 +17,8 @@ import util.MessageBundle;
 public class MainMenuBar extends JMenuBar {
 
 	private Container containerPanel;
+	private ActionListener menuActionListener;
+	private ActionListener exitActionListener;
 	
 	private JMenu menuGame;
 	private JMenu menuHelp;
@@ -53,9 +56,16 @@ public class MainMenuBar extends JMenuBar {
 	}
 	
 	private void initEvents() {
-		itemStart.setActionCommand(ContainerPanel.GAME_PANEL);
+		menuActionListener = new MenuActionListener(containerPanel);
+		exitActionListener = new ExitActionListener();
 		
-		itemStart.addActionListener(new StartActionListener(containerPanel));
-		itemExit.addActionListener(new ExitActionListener());
+		itemStart.setActionCommand(ContainerPanel.GAME_PANEL);
+		itemOptions.setActionCommand(ContainerPanel.OPTIONS_PANEL);
+		itemHelp.setActionCommand(ContainerPanel.HELP_PANEL);
+		
+		itemStart.addActionListener(menuActionListener);
+		itemOptions.addActionListener(menuActionListener);
+		itemHelp.addActionListener(menuActionListener);
+		itemExit.addActionListener(exitActionListener);
 	}
 }

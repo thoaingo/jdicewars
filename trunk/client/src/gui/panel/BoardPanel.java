@@ -9,7 +9,7 @@ import javax.swing.JLabel;
 import app.AppContext;
 
 @SuppressWarnings("serial")
-public class BoardPanel extends AbstractPanel {
+public class BoardPanel extends CommonPanel {
 
 	public BoardPanel(Container containerContainer) {
 		super(containerContainer);

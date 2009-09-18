@@ -5,7 +5,7 @@ import java.awt.Container;
 import javax.swing.JLabel;
 
 @SuppressWarnings("serial")
-public class HelloPanel extends AbstractPanel {
+public class HelloPanel extends CommonPanel {
 
 	public HelloPanel(Container parentContainer) {
 		super(parentContainer);
