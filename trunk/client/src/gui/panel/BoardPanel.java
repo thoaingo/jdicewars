@@ -23,11 +23,17 @@ public class BoardPanel extends CommonPanel {
 		// TODO implement
 	}
 
+	public void setVisible(boolean aFlag) {
+		super.setVisible(aFlag);
+	}
+	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		Graphics2D g2d = (Graphics2D) g;
-		AppContext.getContext().drawField(g2d, this.getSize());
-		AppContext.getContext().fillField(g2d, this.getSize());
+		if (AppContext.getContext().isGameAlive()) {
+			AppContext.getContext().drawField(g2d, this.getSize());
+			AppContext.getContext().fillField(g2d, this.getSize());
+		}
 	}
 	
 }

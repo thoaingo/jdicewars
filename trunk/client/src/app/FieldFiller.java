@@ -31,16 +31,17 @@ public class FieldFiller {
 
 	public void fill(Graphics2D g2d, List<Player> players, Dimension newSize) {
 		log.info("fill");
-		
-		HexagonField field = AppContext.getContext().getDrawer().getField();
-		int i = 0;
-		for (Hexagon hexagon : field) {
-			//Set<Hexagon> neighbors = field.findNeighbors(hexagon);
-						
-			int number = i % players.size();
-			g2d.setPaint(players.get(number).getColor());
-			i++;
-			g2d.fill(hexagon.getPath());
+		if (!players.isEmpty()) {
+			HexagonField field = AppContext.getContext().getDrawer().getField();
+			int i = 0;
+			for (Hexagon hexagon : field) {
+				//Set<Hexagon> neighbors = field.findNeighbors(hexagon);
+							
+				int number = i % players.size();
+				g2d.setPaint(players.get(number).getColor());
+				i++;
+				g2d.fill(hexagon.getPath());
+			}
 		}
 	}
 }
