@@ -22,6 +22,7 @@ public class StartApp {
 				
 				MessageBundle.initLocale("en");
 				
+				// JFrame.setDefaultLookAndFeelDecorated(true);
 				JFrame mainFraime = new MainFrame();
 				mainFraime.setVisible(true);
 			}

@@ -6,19 +6,16 @@ import java.awt.Container;
 import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
-public class GamePanel extends JPanel {
+public class GamePanel extends AbstractPanel {
 
-	private Container parentContainer;
 	private JPanel boardPanel;
     private JPanel scorePanel;
 	
 	public GamePanel(Container parentContainer) {
-		this.parentContainer = parentContainer;
-		initComponents();
-		initEvents();
+		super(parentContainer);
 	}
 
-	private void initComponents() {
+	protected void initComponents() {
 		setLayout(new BorderLayout());
 		
 		boardPanel = new BoardPanel(parentContainer);
@@ -29,8 +26,8 @@ public class GamePanel extends JPanel {
 		
 	}
 
-	private void initEvents() {
-		// TODO Auto-generated method stub
+	protected void initEvents() {
+		// TODO implement
 		
 	}
 }

@@ -3,26 +3,20 @@ package gui.panel;
 import java.awt.Container;
 
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
-public class HelloPanel extends JPanel {
+public class HelloPanel extends AbstractPanel {
 
-	//private Container parentContainer;
-	
 	public HelloPanel(Container parentContainer) {
-		//this.parentContainer = parentContainer;
-		initComponents();
-		initEvents();
+		super(parentContainer);
 	}
 
-	private void initComponents() {
+	protected void initComponents() {
 		add(new JLabel("Hello"));
-		
 	}
 
-	private void initEvents() {
-		// TODO Auto-generated method stub
-		
+	protected void initEvents() {
+		// TODO implement
 	}
+
 }

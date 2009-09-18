@@ -13,7 +13,6 @@ public class StartActionListener implements ActionListener {
 		this.parentContainer = parentContainer;
 	}
 	
-	@Override
 	public void actionPerformed(ActionEvent e) {
 		CardLayout cl = (CardLayout)(parentContainer.getLayout());
 	    cl.show(parentContainer, (String)e.getActionCommand());

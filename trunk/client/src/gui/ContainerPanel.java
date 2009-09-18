@@ -11,6 +11,8 @@ import javax.swing.JPanel;
 public class ContainerPanel extends JPanel {
 
 	public final static String HELLO_PANEL = "Hello Panel";
+	public final static String OPTIONS_PANEL = "Options Panel";
+	public final static String HELP_PANEL = "Help Panel";
 	public final static String GAME_PANEL = "Game Panel";
 	
 	private JPanel helloPanel;
@@ -32,7 +34,6 @@ public class ContainerPanel extends JPanel {
 	}
 
 	private void initEvents() {
-		// TODO Auto-generated method stub
-		
+		// TODO implement
 	}
 }

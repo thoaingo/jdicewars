@@ -25,9 +25,11 @@ public class AppContext {
 		Player pl1 = new Player(Color.RED);
 		Player pl2 = new Player(Color.BLUE);
 		Player pl3 = new Player(Color.YELLOW);
+		//Player pl4 = new Player(Color.GREEN);
 		players.add(pl1);
 		players.add(pl2);
 		players.add(pl3);
+		//players.add(pl4);
 	}
 	
 	public static AppContext getContext(JPanel panel) {

@@ -3,30 +3,21 @@ package gui.panel;
 import java.awt.Container;
 
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
-public class ScorePanel extends JPanel {
+public class ScorePanel extends AbstractPanel {
 
-	private Container parentContainer;
-	
 	public ScorePanel(Container parentContainer) {
-		this.parentContainer = parentContainer;
-		initComponents();
-		initEvents();
+		super(parentContainer);
 	}
 
-	private void initComponents() {
+	protected void initComponents() {
 		add(new JLabel("Score"));
 		
 	}
 
-	private void initEvents() {
-		// TODO Auto-generated method stub
-		
+	protected void initEvents() {
+		// TODO implement
 	}
 	
-	public Container getParentContainer() {
-		return parentContainer;
-	}
 }
