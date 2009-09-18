@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import gui.ContainerPanel;
 import gui.listener.ExitActionListener;
 import gui.listener.CommonActionListener;
+import gui.listener.StartGameListener;
 
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -19,6 +20,7 @@ public class MainMenuBar extends JMenuBar {
 	private Container containerPanel;
 	private ActionListener menuActionListener;
 	private ActionListener exitActionListener;
+	private ActionListener startGameListener;
 	
 	private JMenu menuGame;
 	private JMenu menuHelp;
@@ -58,12 +60,14 @@ public class MainMenuBar extends JMenuBar {
 	private void initEvents() {
 		menuActionListener = new CommonActionListener(containerPanel);
 		exitActionListener = new ExitActionListener();
+		startGameListener = new StartGameListener();
 		
 		itemStart.setActionCommand(ContainerPanel.GAME_PANEL);
 		itemOptions.setActionCommand(ContainerPanel.OPTIONS_PANEL);
 		itemHelp.setActionCommand(ContainerPanel.HELP_PANEL);
 		
 		itemStart.addActionListener(menuActionListener);
+		itemStart.addActionListener(startGameListener);
 		itemOptions.addActionListener(menuActionListener);
 		itemHelp.addActionListener(menuActionListener);
 		itemExit.addActionListener(exitActionListener);
