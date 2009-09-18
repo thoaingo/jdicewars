@@ -1,5 +1,8 @@
 package app;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import gui.frame.MainFrame;
 
 import javax.swing.JFrame;
@@ -8,7 +11,7 @@ import javax.swing.UIManager;
 
 import util.MessageBundle;
 
-public class StartApp {
+public class MainApplication {
 
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Runnable() {
@@ -21,6 +24,7 @@ public class StartApp {
 				}
 				
 				MessageBundle.initLocale("en");
+				Logger.getLogger("").setLevel(Level.ALL);
 				
 				// JFrame.setDefaultLookAndFeelDecorated(true);
 				JFrame mainFraime = new MainFrame();

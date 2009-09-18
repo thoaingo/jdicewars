@@ -32,6 +32,7 @@ public class AppContext {
 		//players.add(pl4);
 	}
 	
+	@Deprecated
 	public static AppContext getContext(JPanel panel) {
 		size = panel.getSize();
 		if (context == null) {

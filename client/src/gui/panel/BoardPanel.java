@@ -26,8 +26,8 @@ public class BoardPanel extends CommonPanel {
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		Graphics2D g2d = (Graphics2D) g;
-		AppContext.getContext(this).drawField(g2d, this.getSize());
-		AppContext.getContext(this).fillField(g2d, this.getSize());
+		AppContext.getContext().drawField(g2d, this.getSize());
+		AppContext.getContext().fillField(g2d, this.getSize());
 	}
 	
 }
