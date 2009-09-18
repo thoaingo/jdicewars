@@ -5,11 +5,11 @@ import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class StartActionListener implements ActionListener {
+public class MenuActionListener implements ActionListener {
 
 	private Container parentContainer;
 	
-	public StartActionListener(Container parentContainer) {
+	public MenuActionListener(Container parentContainer) {
 		this.parentContainer = parentContainer;
 	}
 	

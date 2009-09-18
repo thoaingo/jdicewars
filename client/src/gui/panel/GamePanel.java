@@ -6,7 +6,7 @@ import java.awt.Container;
 import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
-public class GamePanel extends AbstractPanel {
+public class GamePanel extends CommonPanel {
 
 	private JPanel boardPanel;
     private JPanel scorePanel;

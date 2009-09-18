@@ -5,18 +5,16 @@ import java.awt.Container;
 import javax.swing.JLabel;
 
 @SuppressWarnings("serial")
-public class HelpPanel extends CommonPanel {
+public class OptionsPanel extends CommonPanel {
 
-	public HelpPanel(Container parentContainer) {
+	public OptionsPanel(Container parentContainer) {
 		super(parentContainer);
 	}
 
-	@Override
 	protected void initComponents() {
-		add(new JLabel("Help here"));
+		add(new JLabel("Options here"));
 	}
 
-	@Override
 	protected void initEvents() {
 		// TODO implement
 	}
