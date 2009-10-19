@@ -1,7 +1,6 @@
 package model;
 
 import java.awt.Point;
-import java.awt.Shape;
 import java.awt.geom.GeneralPath;
 
 public class Hexagon {

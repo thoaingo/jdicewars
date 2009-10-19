@@ -1,11 +1,7 @@
 package model;
 
-import java.awt.Point;
 import java.awt.geom.GeneralPath;
-import java.awt.geom.Point2D;
 import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 @SuppressWarnings("serial")
 public class HexagonArea extends HashSet<Hexagon> {
