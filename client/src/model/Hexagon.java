@@ -6,7 +6,7 @@ import java.awt.geom.GeneralPath;
 
 public class Hexagon {
 
-	private GeneralPath hexagon = new GeneralPath();
+	private GeneralPath path = new GeneralPath();
 	private int[] xPoints = {10, 20, 20, 10, 0, 0};
 	private int[] yPoints = {0, 5, 15, 20, 15, 5};
 	private int x = 0;
@@ -16,11 +16,22 @@ public class Hexagon {
 	@Deprecated
 	private float yScale = 1;
 	
+	// TODO
+	private HexagonArea area;
+	
 	public Hexagon(int x, int y) {
 		this.x = x;
 		this.y = y;
+		
+		path.moveTo((xPoints[0] + x) * xScale, (yPoints[0] + y) * yScale);
+		for (int i = 1; i < xPoints.length; i++) {
+			path.lineTo((xPoints[i] + x) * xScale, (yPoints[i] + y) * yScale);
+		}
+		path.closePath();
+		//return path;
 	}
 	
+	@Deprecated
 	public Hexagon(int x, int y, float xScale, float yScale) {
 		this.x = x;
 		this.y = y;
@@ -28,15 +39,16 @@ public class Hexagon {
 		this.yScale = yScale;
 	}
 
-	public Shape getHexagon() {
-		hexagon.moveTo((xPoints[0] + x) * xScale, (yPoints[0] + y) * yScale);
-		for (int i = 1; i < xPoints.length; i++) {
-			hexagon.lineTo((xPoints[i] + x) * xScale, (yPoints[i] + y) * yScale);
-		}
-		hexagon.closePath();
-		return hexagon;
-	}
+//	public Shape getHexagon() {
+//		path.moveTo((xPoints[0] + x) * xScale, (yPoints[0] + y) * yScale);
+//		for (int i = 1; i < xPoints.length; i++) {
+//			path.lineTo((xPoints[i] + x) * xScale, (yPoints[i] + y) * yScale);
+//		}
+//		path.closePath();
+//		return path;
+//	}
 	
+	@Deprecated
 	public void setScale(float xScale, float yScale) {
 		this.xScale = xScale;
 		this.yScale = yScale;
@@ -59,7 +71,7 @@ public class Hexagon {
 	}
 	
 	public GeneralPath getPath() {
-		return hexagon;
+		return path;
 	}
 
 	@Override
@@ -85,6 +97,18 @@ public class Hexagon {
 		if (y != other.y)
 			return false;
 		return true;
+	}
+
+	public boolean isFree() {
+		return area == null;
+	}
+	
+	public void setArea(HexagonArea area) {
+		this.area = area;
+	}
+	
+	public HexagonArea getArea() {
+		return area;
 	}
 	
 }
