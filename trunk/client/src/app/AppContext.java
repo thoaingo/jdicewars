@@ -4,10 +4,15 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import javax.swing.JPanel;
 
+import model.Hexagon;
+import model.HexagonArea;
+import model.HexagonField;
 import model.Player;
 
 @SuppressWarnings("serial")
@@ -39,7 +44,7 @@ public class AppContext {
 		fieldDrawer = new FieldDrawer(size);
 		fieldFiller = new FieldFiller(size);
 
-		setPlayersCount(2);
+		setPlayersCount(0);
 		gameState = GameState.STOPPED;
 	}
 
@@ -77,6 +82,47 @@ public class AppContext {
 
 	public void startGame() {
 		this.gameState = GameState.STARTED;
+		initRandomPlayerHexagons();
+	}
+
+	private void initRandomPlayerHexagons() {
+		int playersCount = players.size();
+		int hexsInAreaMaxCount = 6;
+		int areasForPlayerCount = fieldDrawer.getFieldSize() / playersCount / hexsInAreaMaxCount;
+		HexagonField field = fieldDrawer.getField();
+		
+		for (int i = 0; i < playersCount; i++) {
+			Player player = players.get(i);
+			
+			for (int j = 0; j < areasForPlayerCount; j++) {
+				HexagonArea hexArea = new HexagonArea();
+				
+				int hexInAreaCount = 0;
+				Iterator<Hexagon> fieldIterator = field.iterator();
+				while (field.iterator().hasNext() && hexInAreaCount < hexsInAreaMaxCount) {
+					Hexagon hex = fieldIterator.next();
+					
+					if (hex.isFree()) {
+						hexArea.add(hex);
+						hexInAreaCount++;
+					}
+					
+					Set<Hexagon> hexNeighbors = field.findNeighbors(hex);
+					Iterator<Hexagon> nIterator = hexNeighbors.iterator();
+					while (nIterator.hasNext() && hexInAreaCount < hexsInAreaMaxCount) {
+						Hexagon nHex = fieldIterator.next();
+						if (nHex.isFree()) {
+							hexArea.add(nHex);
+							hexInAreaCount++;
+						}
+					}
+				}
+				
+				player.addPlayerArea(hexArea);
+			}
+			
+		}
+		
 	}
 
 	public void stopGame() {

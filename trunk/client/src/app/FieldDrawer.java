@@ -43,7 +43,7 @@ public class FieldDrawer {
 		
 		g2d.scale(xScale, yScale);
 		for (Hexagon h : field) {
-			g2d.draw(h.getHexagon());
+			g2d.draw(h.getPath());
 		}
 		
 	}

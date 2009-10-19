@@ -12,12 +12,15 @@ import util.MessageBundle;
 @SuppressWarnings("serial")
 public class MainFrame extends JFrame {
 
+	private JMenuBar mainMenu; 
+	private JPanel containerPanel;
+	
 	public MainFrame() {
 		super(MessageBundle.get("mainframe.title"));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
-        JPanel containerPanel = new ContainerPanel();
-        JMenuBar mainMenu = new MainMenuBar(containerPanel);
+        containerPanel = new ContainerPanel();
+        mainMenu = new MainMenuBar(containerPanel);
         
         getContentPane().add(containerPanel);
         setJMenuBar(mainMenu);

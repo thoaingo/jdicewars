@@ -19,6 +19,8 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import app.AppContext;
+
 import util.ImageUtils;
 
 @SuppressWarnings("serial")
@@ -46,8 +48,6 @@ public class HelloPanel extends CommonPanel {
 	}
 
 	protected void initComponents() {
-		getPlayers();
-
 		imgLogo = ImageUtils.createImageIcon(imageUrl);
 		btStart = new JButton("Start");
 		btOptions = new JButton("Options");
@@ -97,6 +97,8 @@ public class HelloPanel extends CommonPanel {
 		btStart.addActionListener(commonActionListener);
 		btStart.addActionListener(startGameListener);
 		btOptions.addActionListener(commonActionListener);
+		
+		AppContext.getContext().setPlayersCount(cbPlayers.getSelectedIndex() + 2);
 
 	}
 
